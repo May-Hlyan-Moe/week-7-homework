@@ -175,6 +175,10 @@
         text-transform: capitalize;
         }
 
+        #unit .active {
+          color: #096c47;
+        }
+
   </style>
 </head>
 
@@ -261,9 +265,9 @@
             </td>
             <td class="luck"> 
                 <span id="wind-speed">
-                  3 
+                  11
                 </span> 
-                m/s
+                km/h
             </td>
           </tr>
 
@@ -298,9 +302,9 @@
             </td>
             <td class="luck"> 
                 <span id="visibility"> 
-                25000 
+                25 
                 </span> 
-                m
+                km
             </td>
           </tr>
         </tbody>
@@ -360,11 +364,11 @@
 
         document.querySelector("#humidity").innerHTML = response.data.main.humidity;
 
-        document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
+        document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed * 3.6);
 
         document.querySelector("#pressure").innerHTML = response.data.main.pressure;
 
-        document.querySelector("#visibility").innerHTML = response.data.visibility;
+        document.querySelector("#visibility").innerHTML = response.data.visibility * 0.001;
 
         document.querySelector("#country").innerHTML = response.data.sys.country;
 
@@ -424,6 +428,9 @@
 
         let formula = document.querySelector(".temperature");
         formula.innerHTML = Math.round(celsius);
+
+        celsius.classList.add("active");
+        fahrenheit.classList.remove("active");
         }
 
         let celsius = document.querySelector("#tempC");
@@ -436,8 +443,11 @@
         let fahrenheitTemp = (celsius * 9) / 5 + 32;
 
         let formula = document.querySelector(".temperature");
-
         formula.innerHTML = Math.round(fahrenheitTemp);
+        
+        celsius.classList.remove("active");
+        fahrenheit.classList.add("active");
+        
         }
 
         let fahrenheit = document.querySelector("#tempF");
