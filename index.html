@@ -17,6 +17,7 @@
         body {
         background: #dfe8cc;
         margin: auto;
+        max-width: fit-content;
         }
 
         h1 {
@@ -64,6 +65,7 @@
         font-family: "Josefin Sans", sans-serif;
         font-weight: bold;
         color: #445c3c;
+        
         }
 
         #unit {
@@ -227,21 +229,25 @@
       </div>
       <hr />
       <div class="clearfix weatherTemperature">
-        <img src="http://openweathermap.org/img/wn/01n@2x.png" width="100" height="100" id="icon" alt="clear" />
+        <div scope="row">
+            
+            <img src="http://openweathermap.org/img/wn/01n@2x.png" width="100" height="100" id="icon" alt="clear" />
 
-        <span class="temperature">
-          25
-        </span>
+            <span class="temperature">
+            25
+            </span>
 
-        <span id="unit">
-          <a href="#" id="tempC" class="active">
-            °C
-          </a>
-          /
-          <a href="#" id="tempF">
-            °F
-          </a>
-        </span>
+            <span id="unit">
+            <a href="#" id="tempC" class="active">
+                °C
+            </a>
+            /
+            <a href="#" id="tempF">
+                °F
+            </a>
+            </span>
+
+        </div>
       </div>
 
       <hr />
@@ -321,94 +327,23 @@
       <hr />
 
     <span id="weather-forecast">
-        <div scope="row">
-            <span id="tomorrows">
-                Thu
-            </span> 
-            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
-            <span id="tomorrows-temperature">
-                <span id="tomorrows-temperature-max">
-                    24°
+        <div scope="col">
+            <div scope="row">
+                <span id="tomorrows">
+                    html
+                </span> 
+                <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+                <span id="tomorrows-temperature">
+                    <span id="tomorrows-temperature-max">
+                        24°
+                    </span>
+                    <span id="tomorrows-temperature-min">
+                        14°
+                    </span>
                 </span>
-                <span id="tomorrows-temperature-min">
-                    14°
-                </span>
-            </span>
-        </div>
+            </div>
 
-        <div scope="row">
-            <span id="tomorrows">
-                Thu
-            </span> 
-            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
-            <span id="tomorrows-temperature">
-                <span id="tomorrows-temperature-max">
-                    24°
-                </span>
-                <span id="tomorrows-temperature-min">
-                    14°
-                </span>
-            </span>
-        </div>
-
-        <div scope="row">
-            <span id="tomorrows">
-                Thu
-            </span> 
-            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
-            <span id="tomorrows-temperature">
-                <span id="tomorrows-temperature-max">
-                    24°
-                </span>
-                <span id="tomorrows-temperature-min">
-                    14°
-                </span>
-            </span>
-        </div>
-
-        <div scope="row">
-            <span id="tomorrows">
-                Thu
-            </span> 
-            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
-            <span id="tomorrows-temperature">
-                <span id="tomorrows-temperature-max">
-                    24°
-                </span>
-                <span id="tomorrows-temperature-min">
-                    14°
-                </span>
-            </span>
-        </div>
-
-        <div scope="row">
-            <span id="tomorrows">
-                Thu
-            </span> 
-            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
-            <span id="tomorrows-temperature">
-                <span id="tomorrows-temperature-max">
-                    24°
-                </span>
-                <span id="tomorrows-temperature-min">
-                    14°
-                </span>
-            </span>
-        </div>
-
-        <div scope="row">
-            <span id="tomorrows">
-                Thu
-            </span> 
-            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
-            <span id="tomorrows-temperature">
-                <span id="tomorrows-temperature-max">
-                    24°
-                </span>
-                <span id="tomorrows-temperature-min">
-                    14°
-                </span>
-            </span>
+            
         </div>
 
     </span>
@@ -455,7 +390,38 @@
         // forecast
         function displayForecast() {
             let forecastElement = document.querySelector("#weather-forecast");
-            forecastElement.innerHTML = "Forecast"
+
+            let forecastHTML = `<div scope="col">`;
+
+            let days = ["Thu", "Fri", "Sat"];
+
+            days.forEach(function (day) {
+
+                forecastHTML = forecastHTML +       
+                    `   <div scope="row"> 
+                            <span id="tomorrows">
+                                ${day}
+                            </span> 
+                        <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+                        <span id="tomorrows-temperature">
+                            <span id="tomorrows-temperature-max">
+                                24°
+                            </span>
+                            <span id="tomorrows-temperature-min">
+                                14°
+                            </span>
+                        </span>
+                        </div>` ; 
+                        
+            })
+            
+            
+            forecastHTML = forecastHTML + `</div>`;  
+                
+            forecastElement.innerHTML = forecastHTML;
+            
+            
+
         }
 
         //feature2
