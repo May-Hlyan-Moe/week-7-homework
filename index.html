@@ -179,6 +179,14 @@
           color: #096c47;
         }
 
+        #weather-forecast {
+            font-family: "Fredoka One", cursive;
+            font-size: 20px;
+        }
+
+        #tomorrows-temperature-min {
+            opacity: 0.5;
+        }
   </style>
 </head>
 
@@ -312,9 +320,98 @@
 
       <hr />
 
-      <footer>
-        check for tomorrow
-      </footer>
+    <span id="weather-forecast">
+        <div scope="row">
+            <span id="tomorrows">
+                Thu
+            </span> 
+            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+            <span id="tomorrows-temperature">
+                <span id="tomorrows-temperature-max">
+                    24°
+                </span>
+                <span id="tomorrows-temperature-min">
+                    14°
+                </span>
+            </span>
+        </div>
+
+        <div scope="row">
+            <span id="tomorrows">
+                Thu
+            </span> 
+            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+            <span id="tomorrows-temperature">
+                <span id="tomorrows-temperature-max">
+                    24°
+                </span>
+                <span id="tomorrows-temperature-min">
+                    14°
+                </span>
+            </span>
+        </div>
+
+        <div scope="row">
+            <span id="tomorrows">
+                Thu
+            </span> 
+            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+            <span id="tomorrows-temperature">
+                <span id="tomorrows-temperature-max">
+                    24°
+                </span>
+                <span id="tomorrows-temperature-min">
+                    14°
+                </span>
+            </span>
+        </div>
+
+        <div scope="row">
+            <span id="tomorrows">
+                Thu
+            </span> 
+            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+            <span id="tomorrows-temperature">
+                <span id="tomorrows-temperature-max">
+                    24°
+                </span>
+                <span id="tomorrows-temperature-min">
+                    14°
+                </span>
+            </span>
+        </div>
+
+        <div scope="row">
+            <span id="tomorrows">
+                Thu
+            </span> 
+            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+            <span id="tomorrows-temperature">
+                <span id="tomorrows-temperature-max">
+                    24°
+                </span>
+                <span id="tomorrows-temperature-min">
+                    14°
+                </span>
+            </span>
+        </div>
+
+        <div scope="row">
+            <span id="tomorrows">
+                Thu
+            </span> 
+            <img src="https://openweathermap.org/img/wn/02n@2x.png" width="60" height="60" /> 
+            <span id="tomorrows-temperature">
+                <span id="tomorrows-temperature-max">
+                    24°
+                </span>
+                <span id="tomorrows-temperature-min">
+                    14°
+                </span>
+            </span>
+        </div>
+
+    </span>
 
       <hr />
       <small>
@@ -354,6 +451,13 @@
         console.log(hours);
         console.log(day); */
         }
+
+        // forecast
+        function displayForecast() {
+            let forecastElement = document.querySelector("#weather-forecast");
+            forecastElement.innerHTML = "Forecast"
+        }
+
         //feature2
         function showWeather(response) {
         document.querySelector("#town").innerHTML = response.data.name;
@@ -447,13 +551,14 @@
         
         celsius.classList.remove("active");
         fahrenheit.classList.add("active");
-        
+
         }
 
         let fahrenheit = document.querySelector("#tempF");
         fahrenheit.addEventListener("click", fahrenheitFunction);
 
         localSearch("Yangon");
+        displayForecast();
 
     </script>
 </body>
